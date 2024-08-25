@@ -2,28 +2,28 @@
   Prototype
 */
 
-function User(name) {
-  this.name = name;
-  this.welcome = function () {
-    return `Welcome ${this.name}`;
-  };
-}
+let myString = "Mahmoud";
 
-let user1 = new User("Mahmoud");
-let user2 = new User("Farouk");
+console.log(String.prototype);
 
-console.log(User.prototype);
-console.log(user1);
+String.prototype.zFill = function (width) {
+  let theResult = this;
 
-User.prototype.addTitle = function () {
-  return `Mr. ${this.name}`;
+  while (theResult.length < width) {
+    theResult = `0${theResult}`;
+  }
+
+  return theResult.toString();
 };
 
-console.log(Object.prototype);
+console.log("12".zFill(6));
+console.log("516".zFill(6));
+console.log("3625".zFill(6));
+console.log("25145".zFill(6));
+console.log("987654".zFill(6));
 
-Object.prototype.website = "SaadaouiDev";
+String.prototype.sayYouLoveMe = function () {
+  return `I Love You ${this}`;
+};
 
-const myObject = { a: 1, b: 2 };
-console.log(myObject.a);
-console.log(myObject.b);
-console.log(myObject.website);
+console.log("Mahmoud".sayYouLoveMe());
