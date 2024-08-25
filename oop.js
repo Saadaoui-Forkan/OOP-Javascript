@@ -9,16 +9,21 @@ function User(name) {
   };
 }
 
-let user1 = new User("Osama");
-let user2 = new User("Ahmed");
+let user1 = new User("Mahmoud");
+let user2 = new User("Farouk");
 
 console.log(User.prototype);
+console.log(user1);
 
-// function sayHello() {
-//   return 1;
-// }
-// console.log(sayHello.prototype);
+User.prototype.addTitle = function () {
+  return `Mr. ${this.name}`;
+};
 
-const arr = [1, 2, 3, 4, 5];
-console.log(Array.prototype);
-console.log(arr.reverse());
+console.log(Object.prototype);
+
+Object.prototype.website = "SaadaouiDev";
+
+const myObject = { a: 1, b: 2 };
+console.log(myObject.a);
+console.log(myObject.b);
+console.log(myObject.website);
