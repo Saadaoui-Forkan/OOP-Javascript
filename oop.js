@@ -1,29 +1,37 @@
 /*
   Prototype
+  [1] Every Object Has A Prototype
+  [2] Prototype Chain Ends With Object.prototype
+  [2] In Javascript Function Is Object
 */
 
-let myString = "Mahmoud";
+function User(name) {
+  /*
+      [1] Create Empty Object
+      [2] Assign The New Object To this Context
+      [3] New Object Created Prototype = Function Prototype
+      this = {};
+      this.__proto__ = User.__proto__
+    */
+  this.name = name;
+  /*
+      [4] Return The New Object
+      return this
+    */
 
-console.log(String.prototype);
+  // if (!(this instanceof User)) {
+  //   throw new Error("Must Be Called With New Keyword");
+  //   console.log("Error");
+  // }
 
-String.prototype.zFill = function (width) {
-  let theResult = this;
-
-  while (theResult.length < width) {
-    theResult = `0${theResult}`;
+  // ES6
+  if (!new.target) {
+    // throw new Error("Must Be Called With New Keyword");
+    console.log("Error");
   }
+}
 
-  return theResult.toString();
-};
-
-console.log("12".zFill(6));
-console.log("516".zFill(6));
-console.log("3625".zFill(6));
-console.log("25145".zFill(6));
-console.log("987654".zFill(6));
-
-String.prototype.sayYouLoveMe = function () {
-  return `I Love You ${this}`;
-};
-
-console.log("Mahmoud".sayYouLoveMe());
+let user1 = new User("Osama");
+let user2 = User("Ahmed");
+console.log(User.prototype);
+console.log(user1);
